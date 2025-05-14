@@ -1,29 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import OrderForm from './OrderForm';
+import API_BASE_URL from './api';
 
 function OrderList() {
   const [orders, setOrders] = useState([]);
 
-  // Fetch all orders from backend
   const fetchOrders = () => {
-    fetch("http://localhost:8080/api/orders")
+    fetch(`${API_BASE_URL}/api/orders`)
       .then(response => response.json())
       .then(data => setOrders(data));
   };
 
-  // Initial load
   useEffect(() => {
     fetchOrders();
   }, []);
 
-  // Add new order to state
   const addOrder = (order) => {
     setOrders(prev => [...prev, order]);
   };
 
-  // Delete order from backend and update state
   const deleteOrder = async (id) => {
-    await fetch(`http://localhost:8080/api/orders/${id}`, {
+    await fetch(`${API_BASE_URL}/api/orders/${id}`, {
       method: 'DELETE',
     });
     setOrders(prev => prev.filter(order => order.id !== id));
