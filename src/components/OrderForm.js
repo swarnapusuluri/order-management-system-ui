@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API_BASE_URL from './api';
 
 function OrderForm({ onAdd }) {
   const [customerName, setCustomerName] = useState('');
@@ -7,7 +8,7 @@ function OrderForm({ onAdd }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:8080/api/orders', {
+    const response = await fetch(`${API_BASE_URL}/api/orders`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ customerName, status }),
