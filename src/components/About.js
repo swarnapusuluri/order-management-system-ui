@@ -42,7 +42,7 @@ const About = () => {
       fontSize: '1.8rem',
       margin: 0
     }}>
-      <span style={{ fontWeight: 'bold', color: '#66ff66', fontSize: '2rem' }}>SWARNA PUSULURI</span>
+      <span style={{ fontWeight: 'bold', color: '#66ff66', fontSize: '2rem' }}>Order Management by SWARNA PUSULURI</span>
     </h1>
   </div>
 
@@ -62,8 +62,8 @@ const About = () => {
   }}>
     ✅ Java Spring Boot<br />
     ✅ React.js<br />
-    ✅ AWS CodeBuild<br />
-    🚀 Ongoing Enhancements
+    ✅ CI/CD CodeBuild<br />
+    ✅ Ongoing Enhancements
   </div>
 
   {/* Buttons */}
