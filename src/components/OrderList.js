@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import OrderForm from './OrderForm';
 import API_BASE_URL from './api';
-
-//const API_BASE_URL = 'https://order-management-backend-wr9s.onrender.com';
-
 
 function OrderList() {
   const [orders, setOrders] = useState([]);
@@ -18,10 +14,6 @@ function OrderList() {
     fetchOrders();
   }, []);
 
-  const addOrder = (order) => {
-    setOrders(prev => [...prev, order]);
-  };
-
   const deleteOrder = async (id) => {
     await fetch(`${API_BASE_URL}/api/orders/${id}`, {
       method: 'DELETE',
@@ -30,10 +22,8 @@ function OrderList() {
   };
 
   return (
-    <div>
+    <div style={{ maxHeight: '400px', overflowY: 'auto', border: '1px solid #ccc', padding: '10px' }}>
       <h2>Order List</h2>
-      <OrderForm onAdd={addOrder} />
-
       <table border="1" style={{ marginTop: '20px', width: '100%' }}>
         <thead>
           <tr>
